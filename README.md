@@ -1,4 +1,5 @@
-```bash
+# PYTHON SETUP ON MAC FOR AI PROJECTS
+
 # 1. Check/Install Xcode Command Line Tools (skip if already installed)
 xcode-select --install
 
@@ -66,4 +67,4 @@ python main.py
 # Your Mac is now ready for any Python+Poetry project.
 # To add dependencies, just use: poetry add package-name
 # ====
-```
+

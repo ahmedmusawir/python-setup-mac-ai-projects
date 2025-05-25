@@ -1,60 +1,95 @@
 # PYTHON SETUP ON MAC FOR AI PROJECTS
 
+````
 # 🛠️ Mac Python Project Environment Setup Guide
-# (Stark-Certified — copy everything, paste into a file, then delete these outer triple-backticks)
 
-# 1 ▪ Install Xcode Command Line Tools
+## 1. Install Xcode Command Line Tools
+
+```bash
 xcode-select --install
+````
 
-# ------------------------------------------------------------
+---
 
-# 2 ▪ Install pyenv
+## 2. Install pyenv
+
+```bash
 curl https://pyenv.run | bash
+```
 
-# ➜  Add these lines to ~/.bash_profile
+Add the following to your `~/.bash_profile`:
+
+```bash
 export PATH="$HOME/.pyenv/bin:$PATH:/usr/local/bin"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
+```
 
-# ➜  Reload shell
+Reload your shell:
+
+```bash
 source ~/.bash_profile
+```
 
-# ------------------------------------------------------------
+---
 
-# 3 ▪ Install Python 3.12.3
+## 3. Install Python 3.12.3
+
+```bash
 pyenv install 3.12.3
+```
 
-# ------------------------------------------------------------
+---
 
-# 4 ▪ Create parent projects folder and enter it
+## 4. Create a Parent Project Directory
+
+```bash
 mkdir -p ~/python
 cd ~/python
+```
 
-# ------------------------------------------------------------
+---
 
-# 5 ▪ Set Python 3.12.3 for ALL sub-projects
+## 5. Set the Python Version for All Subfolders
+
+```bash
 pyenv local 3.12.3
+```
 
-# ------------------------------------------------------------
+---
 
-# 6 ▪ Create a new project folder and enter it
+## 6. Create Your New Project Folder
+
+```bash
 mkdir my-first-project
 cd my-first-project
+```
 
-# ------------------------------------------------------------
+---
 
-# 7 ▪ Install Poetry (using pip from Python 3.12.3)
+## 7. Install Poetry (using pip)
+
+```bash
 pip install poetry
+```
 
-# ------------------------------------------------------------
+---
 
-# 8 ▪ Initialize Poetry (minimal prompts)
-poetry init  --no-interaction
+## 8. Initialize Poetry in the Project
 
-# ------------------------------------------------------------
+```bash
+poetry init
+```
 
-# 9 ▪ Overwrite pyproject.toml with Stark template
-cat > pyproject.toml <<'EOF'
+*Follow the prompts (skip dependencies if you want a minimal config).*
+
+---
+
+## 9. Configure pyproject.toml
+
+Replace the contents of your `pyproject.toml` with:
+
+```toml
 [tool.poetry]
 name = "my-first-project"
 version = "0.1.0"
@@ -70,23 +105,52 @@ pytest = "*"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-EOF
+```
 
-# ------------------------------------------------------------
+---
 
-# 10 ▪ Install dependencies (without installing the package itself)
+## 10. Install Dependencies Without Installing the Root Project
+
+```bash
 poetry install --no-root
+```
 
-# ------------------------------------------------------------
+---
 
-# 11 ▪ Activate the Poetry virtual environment
+## 11. Activate the Poetry Virtual Environment
+
+```bash
 poetry shell
+```
 
-# ------------------------------------------------------------
+---
 
-# 12 ▪ Test the setup
-echo 'print("Environment setup is successful!")' > main.py
-python main.py   # ➜ should output →  Environment setup is successful!
+## 12. Test the Setup
 
-# ------------------------------------------------------------
-# 🎉  Mac environment ready — repeatable, clean, professional.  🎉
+Create a file named `main.py` with:
+
+```python
+print("Environment setup is successful!")
+```
+
+Run the script:
+
+```bash
+python main.py
+```
+
+You should see:
+
+```
+Environment setup is successful!
+```
+
+---
+
+**You now have a clean, repeatable, professional Python environment on Mac — Stark-certified, ready for any project.**
+
+```
+
+*Just remove the very first and last triple backticks after pasting into GitHub and you’re golden, Mr. Stark!*  
+Let me know if you want a short FAQ or troubleshooting below this block.
+```
